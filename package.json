@@ -21,5 +21,8 @@
   "homepage": "https://github.com/shanebramble/team-profile-generator#readme",
   "dependencies": {
     "inquirer": "^8.1.2"
+  },
+  "devDependencies": {
+    "jest": "^27.1.0"
   }
 }
