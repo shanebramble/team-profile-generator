@@ -27,7 +27,7 @@ var addManager = function () {
             {
                 type: 'number',
                 name: 'managerId',
-                message: "Please enter team manager's id:",
+                message: "Please enter team manager's id:"
             },
             {
                 type: 'input',
@@ -97,35 +97,12 @@ function addEngineer() {
         {
             type: "input",
             name: "engineerId",
-            message: "What is your engineer's id?",
-            validate: answer => {
-                const pass = answer.match(
-                    /^[1-9]\d*$/
-                );
-                if (pass) {
-                    if (idArray.includes(answer)) {
-                        return "This ID is already taken. Please enter a different number.";
-                    } else {
-                        return true;
-                    }
-
-                }
-                return "Please enter a positive number greater than zero.";
-            }
+            message: "What is your engineer's id?"
         },
         {
             type: "input",
             name: "engineerEmail",
-            message: "What is your engineer's email?",
-            validate: answer => {
-                const pass = answer.match(
-                    /\S+@\S+\.\S+/
-                );
-                if (pass) {
-                    return true;
-                }
-                return "Please enter a valid email address.";
-            }
+            message: "What is your engineer's email?"
         },
         {
             type: "input",
@@ -161,21 +138,7 @@ function addIntern() {
         {
             type: "input",
             name: "internId",
-            message: "What is your intern's id?",
-            validate: answer => {
-                const pass = answer.match(
-                    /^[1-9]\d*$/
-                );
-                if (pass) {
-                    if (idArray.includes(answer)) {
-                        return "This ID is already taken. Please enter a different number.";
-                    } else {
-                        return true;
-                    }
-
-                }
-                return "Please enter a positive number greater than zero.";
-            }
+            message: "What is your intern's id?"
         },
         {
             type: "input",
