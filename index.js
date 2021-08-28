@@ -1,34 +1,227 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
+const employeeList = [];
+const idList = [];
 
-var addTeamMembers = function () {
-    console.log('Please Enter your Team Members:');
+// A command line prompt asking information about Manager.
+var addManager = function () {
+    console.log('---------- Please Build you Team -------------');
 
     inquirer.prompt([{
-            type: 'input',
-            name: 'name',
-            message: "Please enter team manager's name:"
-        },
-        {
-            type: 'number',
-            name: 'id',
-            message: "Please enter team manager's id:"
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: "Please enter team manager's email address:"
-        },
-        {
-            type: 'number',
-            name: 'number',
-            message: "Please enter office number:"
-        }
-    ])
-    .then (ans => {
-        console.log(ans);
-    });
+                type: 'input',
+                name: 'managerName',
+                message: "Please enter team manager's name:",
+                validate: input => {
+                    if (input == "") {
+                        console.log("Please enter a correct name.");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            },
+            {
+                type: 'number',
+                name: 'managerId',
+                message: "Please enter team manager's id:",
+            },
+            {
+                type: 'input',
+                name: 'managerEmail',
+                message: "Please enter team manager's email address:",
+                validate: input => {
+                    if (input == "") {
+                        console.log("Please enter a correct email address.");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            },
+            {
+                type: 'number',
+                name: 'managerNumber',
+                message: "Please enter office number:",
+            }
+        ])
+        .then(ans => {
+            const managerEmployee = new Manager(ans.managerName, ans.managerId, ans.managerEmail, ans.managerNumber);
+            employeeList.push(ans);
+            idList.push(ans.managerId);
+            createTeam();
+        });
+
+
 };
 
-addTeamMembers();
+function createTeam() {
+    inquirer.prompt([{
+        type: "list",
+        name: "memberChoice",
+        message: "Which type of team member would you like to add?",
+        choices: [
+            "Engineer",
+            "Intern",
+            "Finish building my team"
+        ]
+    }]).then(ans => {
+        switch (ans.memberChoice) {
+            case "Engineer":
+                addEngineer();
+                break;
+            case "Intern":
+                addIntern();
+                break;
+            default:
+                buildTeam();
+        }
+    });
+}
+
+function addEngineer() {
+    inquirer.prompt([{
+            type: "input",
+            name: "engineerName",
+            message: "What is your engineer's name?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter at least one character.";
+            }
+        },
+        {
+            type: "input",
+            name: "engineerId",
+            message: "What is your engineer's id?",
+            validate: answer => {
+                const pass = answer.match(
+                    /^[1-9]\d*$/
+                );
+                if (pass) {
+                    if (idArray.includes(answer)) {
+                        return "This ID is already taken. Please enter a different number.";
+                    } else {
+                        return true;
+                    }
+
+                }
+                return "Please enter a positive number greater than zero.";
+            }
+        },
+        {
+            type: "input",
+            name: "engineerEmail",
+            message: "What is your engineer's email?",
+            validate: answer => {
+                const pass = answer.match(
+                    /\S+@\S+\.\S+/
+                );
+                if (pass) {
+                    return true;
+                }
+                return "Please enter a valid email address.";
+            }
+        },
+        {
+            type: "input",
+            name: "engineerGithub",
+            message: "What is your engineer's GitHub username?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter at least one character.";
+            }
+        }
+    ]).then(answers => {
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+        employeeList.push(engineer);
+        idList.push(answers.engineerId);
+        createTeam();
+    });
+}
+
+function addIntern() {
+    inquirer.prompt([{
+            type: "input",
+            name: "internName",
+            message: "What is your intern's name?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter at least one character.";
+            }
+        },
+        {
+            type: "input",
+            name: "internId",
+            message: "What is your intern's id?",
+            validate: answer => {
+                const pass = answer.match(
+                    /^[1-9]\d*$/
+                );
+                if (pass) {
+                    if (idArray.includes(answer)) {
+                        return "This ID is already taken. Please enter a different number.";
+                    } else {
+                        return true;
+                    }
+
+                }
+                return "Please enter a positive number greater than zero.";
+            }
+        },
+        {
+            type: "input",
+            name: "internEmail",
+            message: "What is your intern's email?",
+            validate: answer => {
+                const pass = answer.match(
+                    /\S+@\S+\.\S+/
+                );
+                if (pass) {
+                    return true;
+                }
+                return "Please enter a valid email address.";
+            }
+        },
+        {
+            type: "input",
+            name: "internSchool",
+            message: "What is your intern's school?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter at least one character.";
+            }
+        }
+    ]).then(answers => {
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        employeeList.push(intern);
+        idList.push(answers.internId);
+        createTeam();
+    });
+}
+
+function buildTeam() {
+
+}
+
+// Start the Command Line Prompts
+var initApp = function () {
+    addManager();
+    // createTeam();
+    // addEngineer();
+    // addIntern();
+    // buildTeam();
+    // addManager();
+};
+
+initApp();
