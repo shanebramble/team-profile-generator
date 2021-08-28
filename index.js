@@ -17,7 +17,7 @@ var addTeamMembers = function () {
         {
             type: 'input',
             name: 'email',
-            message: "Please enter manager's email address:"
+            message: "Please enter team manager's email address:"
         },
         {
             type: 'number',
