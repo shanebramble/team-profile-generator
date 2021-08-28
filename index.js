@@ -1,5 +1,6 @@
-const inquirer = require('inquirer');
 const fs = require('fs');
+const inquirer = require('inquirer');
+
 
 var addTeamMembers = function () {
     console.log('Please Enter your Team Members:');
