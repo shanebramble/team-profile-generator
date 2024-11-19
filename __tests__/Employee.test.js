@@ -1,15 +1,5 @@
 import { Employee } from "../lib/Employee.js";
 
-// Create mock data.
-// jest.mock("../lib/Employee", () => ({
-//   Employee: jest.fn(() => {
-//     name: "Shane",
-//     id: 4,
-//     email: "shanebram"
-//   }),
-// }));
-
-
 test("create an employee object", () => {
   const employee = new Employee("Shane", 4, "shanebramble96@hotmail.com");
 
