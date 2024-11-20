@@ -1,4 +1,4 @@
-import { Employee } from "./lib/Employee.js";
+import { Team } from "./lib/Team.js";
 
-const employee = new Employee();
-employee.init();
+const team = new Team();
+team.init();
