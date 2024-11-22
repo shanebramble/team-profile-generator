@@ -1,0 +1,16 @@
+header {
+    display: flex;
+    justify-content: center;
+}
+
+main h2 {
+    text-align: center;
+}
+
+section.employees-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+.employee {
+    margin: 20px 20px;
+}
