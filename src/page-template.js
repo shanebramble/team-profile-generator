@@ -1,21 +1,71 @@
+// A function to create the engineer sections.
+function createEngineers(engineers) {
+  return engineers
+    .map((obj) => {
+      return `
+    <div class="employee-style">
+      <h3>${obj.getRole()}</h3>
+      <p>Name: ${obj.getName()}</p>
+      <p>ID: ${obj.getId()}</p>
+      <p>Email: ${obj.getEmail()}</p>
+      <p>GitHub username: ${obj.getGithub()}</p>
+    </div>
+    `;
+    })
+    .join(""); // Joins all the HTML into a single string
+}
+
+function createInterns(interns) {
+  return interns
+    .map((obj) => {
+      return `
+    <div class="employee-style">
+      <h3>${obj.getRole()}</h3>
+      <p>Name: ${obj.getName()}</p>
+      <p>ID: ${obj.getId()}</p>
+      <p>Email: ${obj.getEmail()}</p>
+      <p>GitHub username: ${obj.getSchool()}</p>
+    </div>
+    `;
+    })
+    .join(""); // Joins all the HTML into a single string
+}
+// The main HTML template page
 function pageTemplate(manager, engineers, interns) {
-return `
+  //   var createdEngineers = createEngineers(engineers);
+  //   createInters();
+
+  return `
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Profile Generator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <header>
-    <h1>Team<h2>
+      <h1>Software Engineering Team</h1>
     </header>
-    <h1>The Software Engineering Team</h1>
-    
+    <main>
+      <h2>Employees</h2>
 
-</body>
+      <section class="employees-section">
+        <div class="employee-style">
+          <h3>${manager.getRole()}</h3>
+          <p>Name: ${manager.getName()}</p>
+          <p>ID: ${manager.getId()}</p>
+          <p>email: ${manager.getEmail()}</p>
+          <p>Office number: ${manager.officeNumber}</p>
+        </div>
+        ${createEngineers(engineers)}
+        ${createInterns(interns)}
+      </section>
+    </main>
+  </body>
 </html>
+
 `;
 }
 
