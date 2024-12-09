@@ -14,7 +14,7 @@ function createEngineers(engineers) {
     })
     .join(""); // Joins all the HTML into a single string
 }
-
+// A function to create the intern sections.
 function createInterns(interns) {
   return interns
     .map((obj) => {
@@ -32,9 +32,6 @@ function createInterns(interns) {
 }
 // The main HTML template page
 function pageTemplate(manager, engineers, interns) {
-  //   var createdEngineers = createEngineers(engineers);
-  //   createInters();
-
   return `
 <!DOCTYPE html>
 <html lang="en">
