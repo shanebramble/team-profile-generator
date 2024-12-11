@@ -1,0 +1,31 @@
+body {
+    background-color: #DCF2F1;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+main h2 {
+    text-align: center;
+}
+
+section.employees-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.employee-style {
+    margin: 20px 20px;
+    border: 2px solid;
+    border-radius: 15px;
+}
+.employee-style > *:not(h3)  {
+   /* Your styles here */
+   padding: 0px 20px;
+   border-bottom: 1px solid gray;
+}
+.employee-style h3 {
+    text-align: center;
+}
