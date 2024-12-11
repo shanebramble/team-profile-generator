@@ -7,8 +7,8 @@ function createEngineers(engineers) {
       <h3>${obj.getRole()}</h3>
       <p>Name: ${obj.getName()}</p>
       <p>ID: ${obj.getId()}</p>
-      <p>Email: ${obj.getEmail()}</p>
-      <p>GitHub username: ${obj.getGithub()}</p>
+      <p>Email: <a href="mailto:${obj.getEmail()}">${obj.getEmail()}</a></p>
+      <p>GitHub username: <a href="https://github.com/${obj.getGithub()}" target="_blank">${obj.getGithub()}</a></p>
     </div>
     `;
     })
@@ -23,8 +23,8 @@ function createInterns(interns) {
       <h3>${obj.getRole()}</h3>
       <p>Name: ${obj.getName()}</p>
       <p>ID: ${obj.getId()}</p>
-      <p>Email: ${obj.getEmail()}</p>
-      <p>GitHub username: ${obj.getSchool()}</p>
+      <p>Email: <a href="mailto:${obj.getEmail()}">${obj.getEmail()}</a></p>
+      <p>School: ${obj.getSchool()}</p>
     </div>
     `;
     })
@@ -53,7 +53,7 @@ function pageTemplate(manager, engineers, interns) {
           <h3>${manager.getRole()}</h3>
           <p>Name: ${manager.getName()}</p>
           <p>ID: ${manager.getId()}</p>
-          <p>email: ${manager.getEmail()}</p>
+          <p>email:<a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
           <p>Office number: ${manager.officeNumber}</p>
         </div>
         ${createEngineers(engineers)}
