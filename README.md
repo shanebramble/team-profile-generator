@@ -2,9 +2,9 @@
 
 # Description
 
-In this module, I used node.js to build a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person. Because testing is key to making code maintainable, I also wrote unit tests for each part of my code and ensured that all of my tests passed.
+During this module, I utilized Node.js to construct a command-line application capable of processing employee data and generating a dynamic HTML summary report. To uphold rigorous software engineering standards, I incorporated a robust unit testing framework, guaranteeing the reliability and correctness of the application's functionality.
 
-![README Generator]()
+![README Generator](./assets/images/profile%20image.jpg)
 
 # Pre-requisites
 
@@ -33,7 +33,7 @@ npm start
 
 ## Video Demonstration
 
-[Video Demonstration Link](https://drive.google.com/file/d/1frpmBpQ0mWRvE6l1dR9oF0fTAQ0Uy2Mx/view)
+[Video Demonstration Link](https://drive.google.com/file/d/1zbmzJPyauHPs69_mGkY4J8w3CsinDQuo/view)
 
 ### Built With
 
